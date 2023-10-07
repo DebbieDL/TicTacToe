@@ -1,0 +1,235 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+import java.util.*;
+
+class Game implements ActionListener{
+
+    Random rd = new Random();
+    JFrame frame;	 
+    JButton[] buttons = new JButton[9];
+	JPanel panelB;
+    JTextField text;
+    String s;
+    boolean game = true;
+    boolean p1 = true;
+
+Game(){
+super();
+   
+    frame = new JFrame();
+	text = new JTextField();
+	text.setForeground(Color.cyan);
+	text.setFont(new Font("MV BOLI", Font.ITALIC, 30));
+
+	panelB = new JPanel();
+	panelB.setLayout(new GridLayout(3,3,10,10));
+	panelB.setPreferredSize(new Dimension(300,420));
+	panelB.setBackground(Color.cyan);
+	panelB.setForeground(Color.black);
+	
+for(int i = 0; i<9; i++){
+               
+    buttons[i] = new JButton();
+    buttons[i].addActionListener(this);
+    buttons[i].setSize(200,200);
+    buttons[i].setFocusable(false);
+    buttons[i].setBackground(Color.black);
+	panelB.add(buttons[i]);
+	frame.add(panelB);
+   // frame.add(buttons[i]);
+	
+     }
+
+	frame.setSize(520,520);
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	frame.getContentPane().setBackground(Color.cyan);
+	//frame.setLayout(new GridLayout(3,3,10,10));
+
+	frame.setVisible(true);
+}
+void checkX(){
+if(buttons[0].getText() == "X" &&
+	 buttons[1].getText() == "X" &&
+	 buttons[2].getText() == "X"){
+	 buttons[0].setBackground(Color.green);
+	 buttons[1].setBackground(Color.green);
+	 buttons[2].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[3].getText() == "X" &&
+	 buttons[4].getText() == "X" &&
+	 buttons[5].getText() == "X"){
+	 buttons[3].setBackground(Color.green);
+	 buttons[4].setBackground(Color.green);
+	 buttons[5].setBackground(Color.green);
+     game = false;
+    }
+	else if(buttons[6].getText() == "X" &&
+	 buttons[7].getText() == "X" &&
+	 buttons[8].getText() == "X"){
+	 buttons[6].setBackground(Color.green);
+	 buttons[7].setBackground(Color.green);
+	 buttons[8].setBackground(Color.green);
+     game = false;
+    }
+	else if(buttons[0].getText() == "X" &&
+	 buttons[4].getText() == "X" &&
+	 buttons[8].getText() == "X"){
+	 buttons[0].setBackground(Color.green);
+	 buttons[4].setBackground(Color.green);
+	 buttons[8].setBackground(Color.green);
+   	 game = false;
+    }
+	else if(buttons[2].getText() == "X" &&
+	 buttons[4].getText() == "X" &&
+	 buttons[6].getText() == "X"){
+	 buttons[2].setBackground(Color.green);
+	 buttons[4].setBackground(Color.green);
+	 buttons[6].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[0].getText() == "X" &&
+	 buttons[3].getText() == "X" &&
+	 buttons[6].getText() == "X"){
+	 buttons[0].setBackground(Color.green);
+	 buttons[3].setBackground(Color.green);
+	 buttons[6].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[1].getText() == "X" &&
+	 buttons[4].getText() == "X" &&
+	 buttons[7].getText() == "X"){
+	 buttons[1].setBackground(Color.green);
+	 buttons[4].setBackground(Color.green);
+ 	 buttons[7].setBackground(Color.green);
+     game = false;
+    }
+	else if(buttons[2].getText() == "X" &&
+	 buttons[5].getText() == "X" &&
+	 buttons[8].getText() == "X"){
+	 buttons[2].setBackground(Color.green);
+	 buttons[5].setBackground(Color.green);
+	 buttons[8].setBackground(Color.green);
+	 game = false;
+    }
+else if(game == false){
+	for(int i = 0;i<buttons.length;i++){
+	buttons[i].setEnabled(false);
+	}
+}
+}
+
+void checkO(){
+if(buttons[0].getText() == "O" &&
+	 buttons[1].getText() == "O" &&
+	 buttons[2].getText() == "O"){
+	 buttons[0].setBackground(Color.green);
+	 buttons[1].setBackground(Color.green);
+	 buttons[2].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[3].getText() == "O" &&
+	 buttons[4].getText() == "O" &&
+	 buttons[5].getText() == "O"){
+	 buttons[3].setBackground(Color.green);
+	 buttons[4].setBackground(Color.green);
+	 buttons[5].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[6].getText() == "O" &&
+	 buttons[7].getText() == "O" &&
+	 buttons[8].getText() == "O"){
+	 buttons[6].setBackground(Color.green);
+	 buttons[7].setBackground(Color.green);
+	 buttons[8].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[0].getText() == "O" &&
+	 buttons[4].getText() == "O" &&
+	 buttons[8].getText() == "O"){
+	 buttons[0].setBackground(Color.green);
+	 buttons[4].setBackground(Color.green);
+	 buttons[8].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[2].getText() == "O" &&
+	 buttons[4].getText() == "O" &&
+	 buttons[6].getText() == "O"){
+	 buttons[2].setBackground(Color.green);
+	 buttons[4].setBackground(Color.green);
+	 buttons[6].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[0].getText() == "O" &&
+	 buttons[3].getText() == "O" &&
+	 buttons[6].getText() == "O"){
+	 buttons[0].setBackground(Color.green);
+	 buttons[3].setBackground(Color.green);
+	 buttons[6].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[1].getText() == "O" &&
+	 buttons[4].getText() == "O" &&
+	 buttons[7].getText() == "O"){
+	 buttons[1].setBackground(Color.green);
+	 buttons[4].setBackground(Color.green);
+	 buttons[7].setBackground(Color.green);
+	 game = false;
+    }
+	else if(buttons[2].getText() == "O" &&
+	 buttons[5].getText() == "O" &&
+	 buttons[8].getText() == "O"){
+	 buttons[2].setBackground(Color.green);
+	 buttons[5].setBackground(Color.green);
+	 buttons[8].setBackground(Color.green);
+	 game = false;
+    }
+else if(game == false){
+	for(int i = 0;i<buttons.length;i++){
+	buttons[i].setEnabled(false);
+	}
+}
+
+}
+
+
+//Actions for buttons
+public void actionPerformed(ActionEvent e){
+    
+    Object o = e.getSource();
+
+for(int j = 0; j<9;j++){
+    buttons[j].setFont(new Font("MV BOLI", Font.ITALIC, 120));
+    buttons[j].setForeground(Color.cyan);
+    buttons[j].setBackground(Color.black);
+    buttons[j].setBorder(BorderFactory.createLineBorder(new Color(0,0,0,0)));
+    
+
+
+if(o == buttons[j]){
+frame.setVisible(true); 	
+if(p1){
+    buttons[j].setText("X");
+	p1 = false;
+}
+else{
+	buttons[j].setText("O");
+	p1 = true;
+}
+
+    buttons[j].setEnabled(false);
+
+    }
+	checkX();
+	checkO();
+  }
+
+ }
+//main method obviously
+public static void main(String[] args){     
+new Game();
+
+}
+
+}
